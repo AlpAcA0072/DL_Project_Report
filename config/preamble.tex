@@ -1,0 +1,102 @@
+% !Mode:: "TeX:UTF-8"
+% !TEX program  = xelatex
+
+% 数学符号与环境
+\usepackage{amsmath,amssymb}
+  \newcommand{\dd}{\mathrm{d}}
+  \newcommand{\RR}{\mathbb{R}}
+% Reference
+\usepackage[style=gb7714-2015,gbpub=false]{biblatex}
+  \addbibresource{ref.bib}
+% 无意义文本
+\usepackage{zhlipsum,lipsum}
+% 列表环境设置
+\usepackage{enumitem}
+% 浮动题不越过 \section
+\usepackage[section]{placeins}
+% 超链接
+\usepackage{hyperref}
+% 图片，子图，浮动题设置
+\usepackage{graphicx,subcaption,float}
+% 抄录环境设置，更多有趣例子请命令行输入 `texdoc tcolorbox`
+\usepackage{tcolorbox}
+  \tcbuselibrary{xparse}
+  \DeclareTotalTCBox{\verbbox}{ O{green} v !O{} }%
+    {fontupper=\ttfamily,nobeforeafter,tcbox raise base,%
+    arc=0pt,outer arc=0pt,top=0pt,bottom=0pt,left=0mm,%
+    right=0mm,leftrule=0pt,rightrule=0pt,toprule=0.3mm,%
+    bottomrule=0.3mm,boxsep=0.5mm,bottomrule=0.3mm,boxsep=0.5mm,%
+    colback=#1!10!white,colframe=#1!50!black,#3}{#2}%
+\tcbuselibrary{listings,breakable}
+  \newtcbinputlisting{\Python}[2]{
+    listing options={language=Python,numbers=left,numberstyle=\tiny,
+      breaklines,commentstyle=\color{white!50!black}\textit},
+    title=\texttt{#1},listing only,breakable,
+    left=6mm,right=6mm,top=2mm,bottom=2mm,listing file={#2}}
+% 三线表支持
+\usepackage{booktabs}
+
+% LaTeX logo
+\usepackage{hologo}
+
+% \usepackage{algorithm}
+% \usepackage{algpseudocode}
+% \usepackage{amsmath}
+% \renewcommand{\algorithmicrequire}{\textbf{Input:}}
+% \renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+% \State <text>
+% \If{<condition>} <text> \EndIf
+% \If{<condition>} <text> \Else <text> \EndIf
+% \If{<condition>} <text> \ElsIf{<condition>}  <text> \Else <text> \EndIf
+% \For{<condition>} <text> \EndFor
+% \ForAll{<condition>} <text> \EndFor
+% \While{<condition>} <text> \EndWhile
+% \Repeat <text> \Until{<condition>}
+% \Loop <text> \EndLoop
+% \Require <text>
+% \Ensure <text>
+% \Function{<name>}{<params>} <body> \EndFunction
+% \State \Return <text>
+% \Comment{<text>}
+
+% \usepackage{algorithm}  
+% \usepackage{algorithmicx}  
+% \usepackage{algpseudocode}
+% \makeatletter
+% \newenvironment{breakablealgorithm}
+%   {% \begin{breakablealgorithm}
+%    \begin{center}
+%      \refstepcounter{algorithm}% New algorithm
+%      \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+%      \renewcommand{\caption}[2][\relax]{% Make a new \caption
+%        {\raggedright\textbf{\ALG@name~\thealgorithm} ##2\par}%
+%        \ifx\relax##1\relax % #1 is \relax
+%          \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+%        \else % #1 is not \relax
+%          \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+%        \fi
+%        \kern2pt\hrule\kern2pt
+%      }
+%   }{% \end{breakablealgorithm}
+%      \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+%    \end{center}
+%   }
+% \makeatother
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\renewcommand\tablename{Table}
+
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Figure}}
+
+% \addbibresource{ref.bib}
+
+\usepackage{url}
+
+\usepackage{multirow}
+\usepackage{bm}

@@ -1,0 +1,40 @@
+@inproceedings{long2015fully,
+  title={Fully convolutional networks for semantic segmentation},
+  author={Long, Jonathan and Shelhamer, Evan and Darrell, Trevor},
+  booktitle={Proceedings of the IEEE conference on computer vision and pattern recognition},
+  pages={3431--3440},
+  year={2015}
+}
+
+@inproceedings{he2017mask,
+  title={Mask r-cnn},
+  author={He, Kaiming and Gkioxari, Georgia and Doll{\'a}r, Piotr and Girshick, Ross},
+  booktitle={Proceedings of the IEEE international conference on computer vision},
+  pages={2961--2969},
+  year={2017},
+  publisher={IEEE}
+} 
+
+@inproceedings{de2017semantic,
+  title={Semantic instance segmentation for autonomous driving},
+  author={De Brabandere, Bert and Neven, Davy and Van Gool, Luc},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops},
+  pages={7--9},
+  year={2017}
+}
+
+@inproceedings{huang2021fapn,
+  title={FaPN: Feature-aligned pyramid network for dense image prediction},
+  author={Huang, Shihua and Lu, Zhichao and Cheng, Ran and He, Cheng},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={864--873},
+  year={2021}
+}
+
+@inproceedings{kirillov2019panoptic,
+  title={Panoptic segmentation},
+  author={Kirillov, Alexander and He, Kaiming and Girshick, Ross and Rother, Carsten and Doll{\'a}r, Piotr},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={9404--9413},
+  year={2019}
+}
