@@ -2,13 +2,14 @@
 % !TEX program  = xelatex
 
 \section{Construction}
-The mobile terminal is mainly responsible for providing users with an easy-to-interact UI interface, obtaining images, and setting related information. 
-The server-side is mainly responsible for data storage and models. Training and model execution. The training server of the model in this paper is different from the model execution server. The client-side and server-side double-end mode has several advantages.
 
 
-\subsection{Server End Construction}
 
-\subsubsection{Model Training}
+
+\subsection{Jetson Nano环境搭建}
+待完成
+
+\subsection{Model Training}
 
 %此部分主要介绍了在不同的数据集上使用不同的backbone网络+FaPN进行训练，并评估了在数据集的测试集上的性能。
 
@@ -131,11 +132,11 @@ It can be seen that after 20000 iterations and default parameter training, the a
 
 Then Faster RCNN \cite{ren2015faster} was trained on 10,000 iterations after adding the FaPN module, and the results shown in the figure below were obtained.
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/faster_rcnn_r_50_fapn_1x_10000iter.png}
-    \caption{Faster RCNN \& FaPN with 10000 interactions}\label{faster_rcnn_r_50_fapn_1x_10000iter}
-\end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=1\textwidth]{figures/faster_rcnn_r_50_fapn_1x_10000iter.png}
+%     \caption{Faster RCNN \& FaPN with 10000 interactions}\label{faster_rcnn_r_50_fapn_1x_10000iter}
+% \end{figure}
 
 
 It can be seen that whether Mask RCNN \cite{he2017mask} or Faster RCNN plus FaPN is used for training on the COCO2017 dataset, higher accuracy and better performance can be obtained under 10,000 iterations, and it has strong practicability.
@@ -186,10 +187,7 @@ It can be seen that whether Mask RCNN \cite{he2017mask} or Faster RCNN plus FaPN
 	\end{table}
 
 
-\subsubsection{Paddle Lite}
-Paddle Lite \cite{paddlelite} is an end-to-end reasoning engine launched by Paddle Mobile based on the new upgrade of Paddle Mobile. It is more complete in the support of multi-hardware, multi-platform, and hardware hybrid scheduling, and provides efficient and lightweight AI applications for end-side scenarios including mobile phones. Reasoning ability, effectively solve problems such as mobile phone computing power and memory limitations are committed to promoting the wider implementation of AI applications.
-
-\subsubsection{Model Deployment}
+\subsection{Model Deployment}
 
 
 For a trained model, we can get its checkpoint (.pth) file, which holds all the parameters of the model. If we need to deploy or evaluate a trained model, we only need to use the checkpoint file of the corresponding model.
@@ -200,34 +198,6 @@ For the server-side, we need a communication module. The function of this module
 
 The server-side adopts the socket server framework, and its basic idea is to monitor the specified port of the server. After receiving the connection request from the client, it makes a handshake with it to establish a connection. Then receive and process the relevant information and call the model.
 
-
-\begin{algorithm} 
-	\caption{Pseudo-Code of Model Running Script} 
-	\label{alg3} 
-	\begin{algorithmic}
-		\REQUIRE 
-        The model to run, $M$;\ The Message-Digest 5 check code of the corresponding file, $M_i$;
-        \ Image file for semantic segmentation, decoded as bitstream is required, $F_i$;
-		\ENSURE 
-        The processed image, $F^p_i$;
-		\STATE Perform the connection procedure with the mobile terminal and hold the connection $Conn$.
-		\IF{$M_i$ not equals to any of the existing file $M_e$}
-        \STATE $Size_f \gets received\  file\  size$
-        \STATE $Recv_f \gets 0$ 
-        % \WHILE{$N \neq 0$} 
-        % \ENDWHILE
-		\ELSE 
-		\STATE Return the existing result image.
-		\ENDIF
-		\WHILE{$Recv_f \neq Size_f$}
-		\STATE Hold the connection and continuously receive the file.
-		\ENDWHILE 
-		\STATE Check the type of the module $M$.
-		\STATE Run the module $M$.
-		\STATE Return the result image, $F^p_i$.
-
-	\end{algorithmic} 
-\end{algorithm}
 
 
 
