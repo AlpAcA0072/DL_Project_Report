@@ -1,16 +1,10 @@
 % !Mode:: "TeX:UTF-8"
 % !TEX program  = xelatex
 
-\section{FaPN Based APP}
-The semantic segmentation APP of a complete application on the mobile terminal should include client and server. 
+\section{Construction}
 The mobile terminal is mainly responsible for providing users with an easy-to-interact UI interface, obtaining images, and setting related information. 
-The server-side is mainly responsible for data storage and models. Training and model execution. The training server of the model in this paper is different from the model execution server. The client-side and server-side double-end mode has several advantages, including: 
+The server-side is mainly responsible for data storage and models. Training and model execution. The training server of the model in this paper is different from the model execution server. The client-side and server-side double-end mode has several advantages.
 
-1). Improves the maintainability and ease of use of functions. Through the decoupling of the front and back ends, the user does not need to care about the underlying logic of the service, and the APP form is easier to operate, Facilitate the expansion and popularization of services. 
-
-2). MD5 encryption is implemented in the process of sending and receiving between the APP and the server, thereby ensuring the security of data during transmission. 
-
-3). Information and tasks are reasonably allocated, the client-side provides users with options to choose from, while the server-side only needs to process and send and receive information.
 
 \subsection{Server End Construction}
 
@@ -22,7 +16,6 @@ In this section, I mainly introduce the training process of different backbone n
 
 \textbf{COCO 2017 Dataset: }MS COCO \cite{lin2014microsoft} consists of over 100K images with different objects and annotations including bounding boxes and segmentation masks. I use the train2017 set (about 118K images) for training and report the results val2017 set (5K images) for comparison. For both object detection and instance segmentation tasks, there are 80 categories; for panoptic segmentation tasks, there are 80 stuff and 53 stuff classes annotated.
 
-\textbf{TT100K dataset in COCO format:} The TT100K dataset is a traffic sign dataset jointly produced by Tencent and Tsinghua, which contains about 10K images of various domestic traffic signs. After calculation, the training dataset contains a total of 16527 instances, and the test dataset contains 8190 instances. TT100K is one of the relatively complete and comprehensive traffic sign datasets in China. Its application scenario is target detection. The annotation of the dataset only includes the position corresponding to the image, so it can only be used for training related to target detection. The annotation file format of the pictures is JSON. The original data set has the problem of unbalanced categories. Some of them are mostly in mountainous areas, and there are relatively few traffic signs on dangerous roads. The format of the original dataset does not meet the training requirements of Detectron2, and it needs to be converted to the COCO format required by Detectron2. The specific method is to first read the JSON annotation file of the original dataset, which contains the category and location information corresponding to the image, and then convert the read-related information into COCO format.
 
 \begin{table}[htb]
 	% h-here,t-top,b-bottom,优先级依次下降
